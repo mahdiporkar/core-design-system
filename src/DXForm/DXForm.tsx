@@ -1,16 +1,31 @@
-import * as React from "react";
+import React from "react";
+import {AntForm} from "./AntForm";
+import {
+        DataEntryType,
+        FieldItemType,
+        FormLayoutType,
+        FormSizeType,
+        FormVariantType} from "./enum";
+import type {IFormProps,IFieldItem} from "./Interface";
 
 type DXFormProps = React.FormHTMLAttributes<HTMLFormElement> & {
   title?: string;
 };
 
-const DXForm: React.FC<DXFormProps> = ({ title, children, ...props }) => {
-  return (
-    <form {...props}>
-      {title ? <h2>{title}</h2> : null}
-      {children}
-    </form>
-  );
+const DXForm: React.FC<IFormProps> = (props: IFormProps) => {
+   return AntForm(props);
 };
 
 export default DXForm;
+
+
+export {
+
+    DataEntryType,
+    IFormProps,
+    IFieldItem,
+    FieldItemType,
+    FormLayoutType,
+    FormSizeType,
+    FormVariantType,
+}
